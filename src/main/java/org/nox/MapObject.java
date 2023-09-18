@@ -1,2 +1,7 @@
-package org.nox;public class MapObject {
+package org.nox;
+
+public interface MapObject {
+   Point getPosition();
+   char getAliveView();
+
 }
