@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bd70b86-b558-4b27-be72-4d6e5c002e7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/nox/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8bd70b86-b558-4b27-be72-4d6e5c002e7d" name="Changes" comment="master Change MapObject and added class Deck">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nox/BasePlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nox/DeckCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nox/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nox/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/nox/ShipFiller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/InputListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/InputListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/PlayerMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/MapObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/MapObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Orientation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/Orientation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/nox/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/nox/Point.java" afterDir="false" />
@@ -56,14 +59,21 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/VChum/Documents/Projects/sea_battle",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.nox" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.nox.Main" />
@@ -97,8 +107,17 @@
       <workItem from="1695034252432" duration="1600000" />
       <workItem from="1695037990137" duration="179000" />
       <workItem from="1695038502440" duration="7495000" />
-      <workItem from="1695046170692" duration="4731000" />
+      <workItem from="1695046170692" duration="13765000" />
     </task>
+    <task id="LOCAL-00001" summary="master Change MapObject and added class Deck">
+      <option name="closed" value="true" />
+      <created>1695051339702</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695051339702</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +125,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="master Change MapObject and added class Deck" />
+    <option name="LAST_COMMIT_MESSAGE" value="master Change MapObject and added class Deck" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -23,7 +23,7 @@ public class Deck implements MapObject {
   }
 
   @Override
-  public char getAliveView() {
+  public char getView() {
     return isAlive ? aliveView : deadView;
   }
 }

@@ -1,46 +1,32 @@
 package org.nox;
 
-enum DeckCount {
-  INVALID(-1),
-  ONE(1),
-  TWO(2),
-  THREE(3),
-  FOUR(4);
-  private final int value;
 
-  DeckCount(int value) {
-    this.value = value;
-  }
-
-  public int getValue() {
-    return value;
-  }
-}
 
 public class Ship {
-  private Deck[] decks;
+  private final Deck[] decks;
   private final DeckCount deckCount;
   private final Orientation orientation;
   private final Point[] coords;
 
   public Ship() {
-    decks = null;
-    this.deckCount = DeckCount.INVALID;
-    this.orientation = Orientation.NONE;
-    this.coords = null;
 
+    decks = null;
+    deckCount = DeckCount.INVALID;
+    orientation = Orientation.NONE;
+    coords = null;
   }
 
-  public Ship(Map map,DeckCount deckCount, Orientation orientation, Point[] coords) {
-    this.deckCount = deckCount;
+  public Ship(PlayerMap map, DeckCount deck_count, Orientation orientation, Point[] coords) {
+
+    deckCount = deck_count;
     this.orientation = orientation;
     this.coords = coords;
 
-    decks = new Deck[deckCount.getValue()];
+    decks = new Deck[deck_count.getValue()];
 
-    for (int i = 0; i < decks.length; i++) {
+    for (int i = 0; i < decks.length; ++i) {
 
-      Deck deck = new Deck(coords[i], '0', 'X');
+      Deck deck = new Deck(coords[i], 'O', 'X');
 
       decks[i] = deck;
 
@@ -48,61 +34,61 @@ public class Ship {
     }
   }
 
-  public boolean isValid() {
-    return deckCount != DeckCount.INVALID &&
-            orientation != Orientation.NONE &&
-            coords != null;
+  public DeckCount getDeckCount() {
+
+    return deckCount;
   }
 
-  public boolean isAlive() {
-    boolean isAlive = false;
+  public boolean is_valid() {
+
+    return deckCount != DeckCount.INVALID && orientation != Orientation.NONE && coords != null;
+  }
+
+  public boolean is_alive() {
+
+    boolean is_alive = false;
 
     for (Deck deck : decks) {
+
       if (deck.isAlive()) {
-        isAlive = true;
+
+        is_alive = true;
       }
     }
-    return isAlive;
+
+    return is_alive;
   }
 
-  public static Ship make(Map map, DeckCount deckCount, Orientation orientation, Point startCoord) {
+  public static Point[] get_coords_for_ship(
+      PlayerMap map, DeckCount deck_count, Orientation orientation, Point start_coord) {
 
-    Point step = new Point(0,0);
+    Point step = orientation.get_direction();
 
-    if (orientation == Orientation.HORIZONTAL) {
+    boolean is_posible_place = true;
 
-      step = new Point(1, 0);
+    Point[] coords = new Point[deck_count.getValue()];
+    Point position = new Point(start_coord.x, start_coord.y);
 
-    } else if (orientation == Orientation.VERTICAL) {
+    for (int i = 0; i < deck_count.getValue(); ++i) {
 
-      step = new Point(0, 1);
+      is_posible_place =
+          map.isValidCoord(position) && !map.isCollide(position) && !map.hasNeighbours(position);
 
-    }else {
-      return null;
-    }
-
-    boolean isPossiblePlace = true;
-
-    Point[] coords = new Point[deckCount.getValue()];
-    Point position = new Point(startCoord.x, startCoord.y);
-
-    for (int i = 0; i < deckCount.getValue(); i++) {
-
-      isPossiblePlace = map.isValidCoord(position) && !map.isCollide(position);
-
-      if (!isPossiblePlace){
+      if (!is_posible_place) {
         break;
       }
 
       coords[i] = new Point(position.x, position.y);
 
-      position.x += step.x;
-      position.y += step.y;
+      position.x = position.x + step.x;
+      position.y = position.y + step.y;
     }
 
-    if (isPossiblePlace) {
-      return new Ship(map, deckCount, orientation, coords);
+    if (is_posible_place) {
+
+      return coords;
     }
+
     return null;
   }
 }
